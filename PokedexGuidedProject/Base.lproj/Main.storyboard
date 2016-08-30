@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Pokemon View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PokemonViewController" customModule="PokedexGuidedProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,8 +16,52 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ia7-Mz-cxD">
+                                <rect key="frame" x="278" y="244" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhN-6R-EJt">
+                                <rect key="frame" x="292" y="289.5" width="17" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abilities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMh-Ke-0iY">
+                                <rect key="frame" x="270" y="334" width="61" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="q5x-ef-Pmk">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Bxd-Xa-8PG"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uMh-Ke-0iY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0cq-Xa-dKA"/>
+                            <constraint firstItem="Ia7-Mz-cxD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5AI-52-YDV"/>
+                            <constraint firstAttribute="trailing" secondItem="q5x-ef-Pmk" secondAttribute="trailing" id="AVo-9E-TIw"/>
+                            <constraint firstItem="q5x-ef-Pmk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="FqS-1O-5M4"/>
+                            <constraint firstItem="yhN-6R-EJt" firstAttribute="top" secondItem="Ia7-Mz-cxD" secondAttribute="bottom" constant="24.5" id="gtu-b3-lv5"/>
+                            <constraint firstItem="yhN-6R-EJt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hq5-vz-hD4"/>
+                            <constraint firstItem="yhN-6R-EJt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nfM-3T-I9Y"/>
+                            <constraint firstItem="q5x-ef-Pmk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="nxh-CF-Urg"/>
+                            <constraint firstItem="uMh-Ke-0iY" firstAttribute="top" secondItem="yhN-6R-EJt" secondAttribute="bottom" constant="23.5" id="qii-lT-9uc"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="abilitiesLabel" destination="uMh-Ke-0iY" id="Acz-hG-2B2"/>
+                        <outlet property="idLabel" destination="yhN-6R-EJt" id="HTn-Ex-Jz0"/>
+                        <outlet property="nameLabel" destination="Ia7-Mz-cxD" id="XOw-UB-fVm"/>
+                        <outlet property="searchBar" destination="q5x-ef-Pmk" id="bdw-Kp-sW3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
